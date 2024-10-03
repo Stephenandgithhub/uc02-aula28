@@ -14,7 +14,16 @@ const contactData = {
   estadoCivil: "Divorciado",
   profissao: "Cross Product Sales (CPS)",
   dataNascimento: "01/01/1980",
-  urls: ["https://linkedin.com/harperstern", "https://github.com/harperstern"],
+  urls: [
+    {
+        "title":  "linkedin",
+        "url":  "https://linkedin.com/harperstern"
+    },
+    {
+        "title": "github",
+        "url": "https://github.com/harperstern"
+    }
+],
 };
 
 //div title
@@ -53,10 +62,10 @@ itemPhone.textContent = `${contactData.phone}`;
 listContact.appendChild(itemPhone);
 //links
 
-for (url of contactData.urls) {
+for (let webaddress of contactData.webaddress) {
   const anchor = document.createElement("a");
-  anchor.textContent = url;
-  anchor.setAttribute("href", url);
+  anchor.textContent = webaddress.title;
+  anchor.setAttribute("href", webaddress.url);
 
   const itemLink = document.createElement("li");
   itemLink.appendChild(anchor);
